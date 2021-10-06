@@ -1,21 +1,9 @@
-
+package linkedlist;
 
 public class Single<E> implements ListADT, Comparable {
 
     public Node getHead() {
         return head;
-    }
-
-    public void setHead(Node head) {
-        this.head = head;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     private Node head = null;
@@ -34,6 +22,16 @@ public class Single<E> implements ListADT, Comparable {
         }
         size++;
         return true;
+    }
+
+    public void removeFirst(){
+        if (head ==null){
+            return;
+        } else{
+            Node temp = this.head;
+            this.head = temp.next;
+            size--;
+        }
     }
 
     @Override

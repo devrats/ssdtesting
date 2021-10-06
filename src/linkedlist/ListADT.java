@@ -1,3 +1,5 @@
+package linkedlist;
+
 public interface ListADT<E> {
     boolean add(E data);
     E remove();
