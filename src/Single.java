@@ -1,4 +1,22 @@
-public class Single<E> implements ListADT {
+
+
+public class Single<E> implements ListADT, Comparable {
+
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     private Node head = null;
     private int size;
@@ -20,9 +38,10 @@ public class Single<E> implements ListADT {
 
     @Override
     public E remove() {
-        Node node = getNode(size - 1);
-        E data = (E) node.getData();
+        Node node = getNode(size - 2);
+        E data = (E) node.next.getData();
         node.next = null;
+        size--;
         return data;
     }
 
@@ -73,9 +92,61 @@ public class Single<E> implements ListADT {
         System.out.println("]");
     }
 
+    @Override
+    public int compareTo(Object o) {
+        Integer.compare(5,7);
+        return 0;
+    }
+
+    public int length(){
+        Node temp = this.head;
+        int count = 0;
+        if(temp==null){
+            return count;
+        }
+        while(temp!=null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    public void getNumber(Single<Integer> list){
+        Node temp = (Node) list.getHead();
+        while(temp!=null){
+            System.out.println(temp);
+            temp = temp.next;
+        }
+
+    }
+
+    public boolean addFirst(Object element){
+        Node temp = this.head;
+        if(temp==null){
+            head = new Node(element, null);
+            this.size++;
+            return true;
+        } else {
+            head = new Node(element, temp);
+            this.size++;
+            return true;
+        }
+
+    }
+
+    public void removeFirst(Single list){
+
+    }
+
+
     class Node<E> {
         private E data;
         private Node next;
+
+        @Override
+        public String toString() {
+            return String.valueOf(data);
+        }
 
         public E getData() {
             return data;

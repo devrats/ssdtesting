@@ -1,16 +1,17 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Single<Student> list = new Single<>();
+        Single<Integer> list = new Single<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
         list.add(5);
-        list.add(6);
-        list.add(7);
-        list.add(8);
+        list.addFirst(0);
         list.print();
-        list.add(2,4);
-        list.print();
-        list.remove();
-        list.print();
-        System.out.println(list.search(7));
-
+        System.out.println(list.length());
     }
 }
