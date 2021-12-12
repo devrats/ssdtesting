@@ -18,16 +18,16 @@ public class Single<E> implements ListADT, Comparable {
             while (temp.getNext() != null) {
                 temp = temp.getNext();
             }
-            temp.next =  new Node(data, null);
+            temp.next = new Node(data, null);
         }
         size++;
         return true;
     }
 
-    public void removeFirst(){
-        if (head ==null){
+    public void removeFirst() {
+        if (head == null) {
             return;
-        } else{
+        } else {
             Node temp = this.head;
             this.head = temp.next;
             size--;
@@ -70,8 +70,11 @@ public class Single<E> implements ListADT, Comparable {
 
     @Override
     public void add(int index, Object data) {
-         if (index >= size) {
-            throw new ArrayIndexOutOfBoundsException("datt teri maa ki");
+        if (index >= size) {
+            throw new ArrayIndexOutOfBoundsException("Can't insert the element");
+        } else if (index == 0) {
+            this.head = new Node((E) data,this.head);
+            size++;
         } else {
             Node node = getNode(index - 1);
             Node temp = node.getNext();
@@ -92,35 +95,35 @@ public class Single<E> implements ListADT, Comparable {
 
     @Override
     public int compareTo(Object o) {
-        Integer.compare(5,7);
+        Integer.compare(5, 7);
         return 0;
     }
 
-    public int length(){
+    public int length() {
         Node temp = this.head;
         int count = 0;
-        if(temp==null){
+        if (temp == null) {
             return count;
         }
-        while(temp!=null){
+        while (temp != null) {
             count++;
             temp = temp.next;
         }
         return count;
     }
 
-    public void getNumber(Single<Integer> list){
+    public void getNumber(Single<Integer> list) {
         Node temp = (Node) list.getHead();
-        while(temp!=null){
+        while (temp != null) {
             System.out.println(temp);
             temp = temp.next;
         }
 
     }
 
-    public boolean addFirst(Object element){
+    public boolean addFirst(Object element) {
         Node temp = this.head;
-        if(temp==null){
+        if (temp == null) {
             head = new Node(element, null);
             this.size++;
             return true;
@@ -132,10 +135,29 @@ public class Single<E> implements ListADT, Comparable {
 
     }
 
-    public void removeFirst(Single list){
-
+    public void remove(int index) {
+        if (index >= size) {
+            throw new ArrayIndexOutOfBoundsException("Can't delete the element");
+        } else if (index == 0) {
+            this.head = this.head.next;
+            size--;
+        } else {
+            Node node = getNode(index - 1);
+            Node temp = node.getNext();
+            node.next = temp.next;
+            size--;
+        }
     }
 
+    public Node middle(){
+        Node node = this.head;
+        Node node1 = this.head;
+        while (node.next!=null && node!=null){
+            node = node.next.next;
+            node1 = node1.next;
+        }
+        return node1;
+    }
 
     class Node<E> {
         private E data;
