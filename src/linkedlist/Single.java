@@ -1,5 +1,7 @@
 package linkedlist;
 
+import org.w3c.dom.Node;
+
 public class Single<E> implements ListADT, Comparable {
 
     public Node getHead() {
@@ -22,6 +24,22 @@ public class Single<E> implements ListADT, Comparable {
         }
         size++;
         return true;
+    }
+
+    public void shift(int k){
+        Node temp = head;
+        Node temp1  = null;
+        while (temp!=null){
+            temp1  = temp;
+            temp = temp.next;
+        }
+
+        for(int i = 0; i<k;i++){
+            Node n = head;
+            head = head.next;
+            temp1.next = n;
+            temp1 = temp1.next;
+        }
     }
 
     public void removeFirst() {
