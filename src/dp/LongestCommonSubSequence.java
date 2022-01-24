@@ -26,9 +26,9 @@ public class LongestCommonSubSequence {
         if (s1.length() == i || s2.length() == j) {
             return 0;
         }
-        if(dp[i][j]!=-1){
-            return dp[i][j];
-        }
+//        if(dp[i][j]!=-1){
+//            return dp[i][j];
+//        }
         if (s1.charAt(i) == s2.charAt(j)) {
             ans = 1 + longestCommonSubsequence(s1, s2, i + 1, j + 1,dp);
         } else {
