@@ -7,8 +7,6 @@
 
 package randomquestion;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ChocolateThief {
@@ -28,7 +26,7 @@ public class ChocolateThief {
         for (int i = 0; i < n; i++) {
             sum += arr[i];
         }
-        int speed = 0;
+        int speed;
         if (sum % h == 0) {
             speed = sum / h;
         } else {
@@ -50,7 +48,7 @@ public class ChocolateThief {
                 if (count > h) {
                     break;
                 }
-                if (j == arr.length && count <= h) {
+                if (j == arr.length) {
                     break label;
                 }
             }
