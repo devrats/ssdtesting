@@ -23,8 +23,12 @@ public class ChocolateThief {
 
     public static void solution(int n, int h, int[] arr) {
         int sum = 0;
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
             sum += arr[i];
+            if(arr[i]>max){
+                max = arr[i];
+            }
         }
         int speed;
         if (sum % h == 0) {
@@ -33,7 +37,7 @@ public class ChocolateThief {
             speed = sum / h + 1;
         }
         label:
-        for (; true; speed++) {
+        for (; speed<=max; speed++) {
             int j = 0;
             int count = 0;
             while (true) {
